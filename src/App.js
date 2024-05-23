@@ -2,7 +2,8 @@
 import { useState } from "react";
 
 export default function App() {
-  const [selectedWeapon, setSelectedWeapon] = useState("knife");
+  const [selectedWeapon, setSelectedWeapon] = useState("rifle");
+  const [selectedBodyPart, setSelectedBodyPart] = useState("head")
   const weapons = {
     rifle: {
       head: 60,
@@ -29,6 +30,14 @@ export default function App() {
       hands: 50,
     },
   };
+function changeWeapon(event) {
+  setSelectedWeapon(event.target.value)
+}
+function changeBodyPart(event) {
+  setSelectedBodyPart(event.target.value)
+}
+
+
   function getResult() {
     const weapon = document.getElementById("weaponSelect").value;
     const bodyPart = document.getElementById("bodyPartSelect").value;
@@ -58,32 +67,36 @@ export default function App() {
       <div className="row d-flex justify-content-center">
         <div className="col">
           <label for="weaponSpdelect">Select a weapon</label>
-          <select name="weapon" id="weaponSelect" className="form-select mb-3">
-            <option value="rifle">Rifle</option>
-            <option value="pistol">Pistol</option>
-            <option value="uzi">UZI</option>
-            <option value="sniper">Sniper</option>
+          <select value={selectedWeapon}
+            onChange={changeWeapon} name="weapon" id="weaponSelect" className="form-select mb-3">
+            <option value="Rifle">Rifle</option>
+            <option value="Pistol">Pistol</option>
+            <option value="Uzi">UZI</option>
+            <option value="Sniper">Sniper</option>
           </select>
         </div>
 
         <div className="col">
           <label for="bodyPartSelect">Select a body part</label>
           <select
+            value={selectedBodyPart}
+            onChange={changeBodyPart}
             name="bodyPart"
             id="bodyPartSelect"
             className="form-select  mb-3"
           >
-            <option value="head">Head</option>
-            <option value="body">Body</option>
-            <option value="legs">Legs</option>
-            <option value="hands">Hands</option>
+            <option value="Head">Head</option>
+            <option value="Body">Body</option>
+            <option value="Legs">Legs</option>
+            <option value="Hands">Hands</option>
           </select>
         </div>
       </div>
       <button onClick={getResult} className="btn btn-danger">
         Shoot
       </button>
-      <p>{selectedWeapon}</p>
+      <p id="weaponText">{selectedWeapon}</p>
+      <p id="bodyText">{selectedBodyPart}</p>
       <p id="result"></p>
     </main>
   );
