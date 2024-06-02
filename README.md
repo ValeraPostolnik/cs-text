@@ -1,8 +1,8 @@
 # CS Text
 A text-based game inspired by Counter Strike
 
-# Gameplay
+## Gameplay
 Choose your weapon, choose your target and shoot!
 
-# Tools
+## Tools
 Developed with React and Bootstrap
