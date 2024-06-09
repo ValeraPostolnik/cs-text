@@ -1,5 +1,7 @@
 
 import { useState } from "react";
+import image from "./img/background-cs-text.jpg"
+import "./App.css";
 
 export default function App() {
   const [selectedWeapon, setSelectedWeapon] = useState("rifle");
@@ -53,11 +55,15 @@ function changeBodyPart(event) {
     return Math.floor(Math.random() * 100 + 1);
   }
   return (
-    <main className="container">
-      <h1 className="text-center">Shooting Game</h1>
+    // TODO: change background to picture from cs 2
+    <main style={{ backgroundImage:`url(${image})` }}>
+      <div className="container">
+      <h1 className="text-center text-light   pt-4">Shooting Game</h1 >
       <div className="row d-flex justify-content-center">
         <div className="col">
-          <label htmlFor="weaponSpdelect">Select a weapon</label>
+           {/* TODO: align text to center */}
+          <label htmlFor="weaponSpdelect" className="text-light ">Select a weapon</label>
+           {/* TODO: chage color objects */}
           <select value={selectedWeapon}
             onChange={changeWeapon} name="weapon" id="weaponSelect" className="form-select mb-3">
             <option value="rifle">Rifle</option>
@@ -68,7 +74,9 @@ function changeBodyPart(event) {
         </div>
 
         <div className="col">
-          <label htmlFor="bodyPartSelect">Select a body part</label>
+          {/* TODO: align text to center */}
+          <label htmlFor="bodyPartSelect" className="text-light ">Select a body part</label>
+          {/* TODO: chage color objects */}
           <select
             value={selectedBodyPart}
             onChange={changeBodyPart}
@@ -83,10 +91,12 @@ function changeBodyPart(event) {
           </select>
         </div>
       </div>
+      {/* TODO: align text to center */}
       <button onClick={getResult} className="btn btn-danger">
         Shoot
       </button>
       <p>{result}</p>
+  </div>
     </main>
   );
 }
