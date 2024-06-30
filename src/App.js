@@ -58,10 +58,10 @@ function changeBodyPart(event) {
     <main style={{ backgroundImage:`url(${image})` }}>
       <div className="container text-bebas">
       <h1 className="text-center text-green-200 text-4xl  pt-4">Shooting Game</h1>
-      <div className="flex justify-center gap-8">
+      <div className="flex justify-center gap-4 md:gap-8 mx-4 my-8">
         <div className="flex flex-col">
            {/* TODO: align text to center */}
-          <label htmlFor="weaponSpdelect" className="text-green-200 text-2xl ">Select a weapon</label>
+          <label htmlFor="weaponSpdelect" className="text-green-200 text-base md:text-2xl ">Select a weapon</label>
            {/* TODO: chage color objects */}
           <select value={selectedWeapon}
             onChange={changeWeapon} name="weapon" id="weaponSelect" className=" mb-3">
@@ -74,7 +74,7 @@ function changeBodyPart(event) {
 
         <div className="flex flex-col">
           {/* TODO: align text to center */}
-          <label htmlFor="bodyPartSelect" className="text-green-200 text-2xl ">Select a body part</label>
+          <label htmlFor="bodyPartSelect" className="text-green-200 text-base md:text-2xl ">Select a body part</label>
           {/* TODO: chage color objects */}
           <select
             value={selectedBodyPart}
