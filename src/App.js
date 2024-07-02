@@ -55,8 +55,8 @@ function changeBodyPart(event) {
     return Math.floor(Math.random() * 100 + 1);
   }
   return (
-    <main style={{ backgroundImage:`url(${image})` }}>
-      <div className="container text-bebas">
+    <main className="bg-image-container">
+      <div className="container mx-auto">
       <h1 className="text-center text-green-200 text-4xl  pt-4">Shooting Game</h1>
       <div className="flex justify-center gap-4 md:gap-8 mx-4 my-8">
         <div className="flex flex-col">
@@ -93,7 +93,7 @@ function changeBodyPart(event) {
           Shoot
         </button>
       </div>
-      <p>{result}</p>
+      <p className="text-slate-100 text-center mt-5 text-xl">{result}</p>
   </div>
     </main>
   );
