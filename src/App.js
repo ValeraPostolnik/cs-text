@@ -1,12 +1,10 @@
-
 import { useState } from "react";
-import image from "./img/background-cs-text.jpg"
 import "./App.css";
 
 export default function App() {
   const [selectedWeapon, setSelectedWeapon] = useState("rifle");
-  const [selectedBodyPart, setSelectedBodyPart] = useState("head")
-  const [result, setResult] = useState("")
+  const [selectedBodyPart, setSelectedBodyPart] = useState("head");
+  const [result, setResult] = useState("");
   const weapons = {
     rifle: {
       head: 60,
@@ -33,13 +31,12 @@ export default function App() {
       hands: 50,
     },
   };
-function changeWeapon(event) {
-  setSelectedWeapon(event.target.value)
-}
-function changeBodyPart(event) {
-  setSelectedBodyPart(event.target.value)
-}
-
+  function changeWeapon(event) {
+    setSelectedWeapon(event.target.value);
+  }
+  function changeBodyPart(event) {
+    setSelectedBodyPart(event.target.value);
+  }
 
   function getResult() {
     const randomNumber = getRandomNumber();
@@ -55,48 +52,68 @@ function changeBodyPart(event) {
     return Math.floor(Math.random() * 100 + 1);
   }
   return (
-    <main style={{ backgroundImage:`url(${image})` }}>
-      <div className="container text-bebas">
-      <h1 className="text-center text-green-200 text-4xl  pt-4">Shooting Game</h1>
-      <div className="flex justify-center gap-4 md:gap-8 mx-4 my-8">
-        <div className="flex flex-col">
-           {/* TODO: align text to center */}
-          <label htmlFor="weaponSpdelect" className="text-green-200 text-base md:text-2xl ">Select a weapon</label>
-           {/* TODO: chage color objects */}
-          <select value={selectedWeapon}
-            onChange={changeWeapon} name="weapon" id="weaponSelect" className=" mb-3">
-            <option value="rifle">Rifle</option>
-            <option value="pistol">Pistol</option>
-            <option value="uzi">UZI</option>
-            <option value="sniper">Sniper</option>
-          </select>
-        </div>
+    <main className="bg-image-container">
+      <div className="container">
+        <h1 className="text-center text-green-200 text-4xl  pt-4">
+          Shooting Game
+        </h1>
+        <div className="flex justify-center gap-4 md:gap-8 mx-4 my-8">
+          <div className="flex flex-col">
+            {/* TODO: align text to center */}
+            <label
+              htmlFor="weaponSpdelect"
+              className="text-green-200 text-base md:text-2xl "
+            >
+              Select a weapon
+            </label>
+            {/* TODO: chage color objects */}
+            <select
+              value={selectedWeapon}
+              onChange={changeWeapon}
+              name="weapon"
+              id="weaponSelect"
+              className=" mb-3"
+            >
+              <option value="rifle">Rifle</option>
+              <option value="pistol">Pistol</option>
+              <option value="uzi">UZI</option>
+              <option value="sniper">Sniper</option>
+            </select>
+          </div>
 
-        <div className="flex flex-col">
-          {/* TODO: align text to center */}
-          <label htmlFor="bodyPartSelect" className="text-green-200 text-base md:text-2xl ">Select a body part</label>
-          {/* TODO: chage color objects */}
-          <select
-            value={selectedBodyPart}
-            onChange={changeBodyPart}
-            name="bodyPart"
-            id="bodyPartSelect"
-            className="  mb-3"
-          >
-            <option value="head">Head</option>
-            <option value="body">Body</option>
-            <option value="legs">Legs</option>
-            <option value="hands">Hands</option>
-          </select>
+          <div className="flex flex-col">
+            {/* TODO: align text to center */}
+            <label
+              htmlFor="bodyPartSelect"
+              className="text-green-200 text-base md:text-2xl "
+            >
+              Select a body part
+            </label>
+            {/* TODO: chage color objects */}
+            <select
+              value={selectedBodyPart}
+              onChange={changeBodyPart}
+              name="bodyPart"
+              id="bodyPartSelect"
+              className="  mb-3"
+            >
+              <option value="head">Head</option>
+              <option value="body">Body</option>
+              <option value="legs">Legs</option>
+              <option value="hands">Hands</option>
+            </select>
+          </div>
         </div>
+        <div className="flex justify-center mt-32">
+          <button
+            onClick={getResult}
+            className="text-zinc-50 bg-red-600 py-2 px-6 rounded-md"
+          >
+            Shoot
+          </button>
+        </div>
+        <p>{result}</p>
       </div>
-      <div className="flex justify-center mt-32">
-        <button onClick={getResult} className="text-zinc-50 bg-red-600 py-2 px-6 rounded-md">
-          Shoot
-        </button>
-      </div>
-      <p>{result}</p>
-  </div>
     </main>
   );
 }
